@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom right, #d7eaff, #fff8e7);
+}
+
+header {
+  text-align: center;
+  padding: 30px 0 10px;
+}
+
+header h1 {
+  font-size: 2.5em;
+  color: #2e88ff;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 40px 40px;
+  justify-items: center;
+}
+
+.card {
+  text-align: center;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  margin: 0 0 15px;
+  color: #555;
+}
+
+.card button {
+  background-color: #2e88ff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.card button:hover {
+  background-color: #1868d6;
+}
+
+.social-icons {
+  position: fixed;
+  top: 30%;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: white;
+  padding: 5px;
+}
