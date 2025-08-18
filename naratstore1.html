@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlock Access</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+      width: 90%;
+      max-width: 350px;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(90deg, #ff0000, #ff0000);
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 10px 0;
+      width: 100%;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .telegram-btn {
+      background: linear-gradient(90deg, #0088cc, #005f99);
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgb(0, 255, 0);
+    }
+
+    .progress-bar {
+      background: rgba(255, 255, 255, 0.2);
+      width: 100%;
+      height: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin: 15px 0;
+    }
+
+    .progress {
+      width: 0%;
+      height: 100%;
+      background: limegreen;
+      transition: width 0.5s;
+    }
+
+    .unlock-btn {
+      background: gray;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      width: 100%;
+      cursor: not-allowed;
+      transition: 0.3s;
+    }
+
+    .unlock-btn.enabled {
+      background: limegreen;
+      cursor: pointer;
+      box-shadow: 0 0 10px limegreen;
+    }
+
+    .unlock-btn.enabled:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Unlock Content</h2>
+    <p>Complete the actions below to unlock</p>
+
+    <button class="btn" id="youtubeButton">🔴 Subscribe on YouTube</button>
+    <button class="btn telegram-btn" id="telegramButton">📩 Join Telegram</button>
+
+    <div class="progress-bar">
+      <div id="progress" class="progress"></div>
+    </div>
+
+    <button id="unlockButton" class="unlock-btn" disabled>🔓 Unlock</button>
+  </div>
+
+  <script>
+    const youtubeButton = document.getElementById('youtubeButton');
+    const telegramButton = document.getElementById('telegramButton');
+    const unlockButton = document.getElementById('unlockButton');
+    const progressBar = document.getElementById('progress');
+
+    let isYouTubeClicked = false;
+    let isTelegramClicked = false;
+
+    youtubeButton.addEventListener('click', function () {
+      isYouTubeClicked = true;
+      window.open('https://www.youtube.com/@xai-qq', '_blank');
+      checkProgress();
+    });
+
+    telegramButton.addEventListener('click', function () {
+      isTelegramClicked = true;
+      window.open('https://t.me/nhoy200', '_blank');
+      checkProgress();
+    });
+
+    function checkProgress() {
+      if (isYouTubeClicked && isTelegramClicked) {
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 5;
+          progressBar.style.width = progress + '%';
+
+          if (progress >= 100) {
+            clearInterval(interval);
+            unlockButton.disabled = false;
+            unlockButton.classList.add('enabled');
+            unlockButton.textContent = '✅ Access Unlocked';
+          }
+        }, 100);
+      }
+    }
+
+    unlockButton.addEventListener('click', function () {
+      if (!this.disabled) {
+        window.location.href = 'https://api.khoindvn.eu.org/SYKaO8'; // Replace with your desired URL
+      }
+    });
+  </script>
+</body>
+</html>
